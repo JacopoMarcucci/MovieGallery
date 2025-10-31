@@ -1,0 +1,7 @@
+{
+  "name": "MovieGallery",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
