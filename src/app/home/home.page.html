@@ -1,20 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Movie Gallery </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Movie Gallery</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-grid>
+    <ion-row>
+      @for(movie of movieData; track i; let i = $index) {
+      <ion-col sizeLg="3" sizeMd="4" sizeSm="6">
+        <ion-card>
+          <ion-img [src]="movie?.thumbnail"> </ion-img>
+          <ion-card-header>
+            <ion-card-title>{{ movie?.title }}</ion-card-title>
+            <ion-card-subtitle>{{ movie?.year }}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+           {{ movie?.genres }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
 </ion-content>
