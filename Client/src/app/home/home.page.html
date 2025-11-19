@@ -1,0 +1,97 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary"  > Movie Gallery </ion-title>
+
+    <ion-buttons slot="start" (click)="openMenu()">
+      <ion-menu-button>  </ion-menu-button>
+    </ion-buttons>
+
+    <ion-item slot="end">
+      
+      <ion-text>Welcome, 
+      <ion-text><strong> {{ username }} </strong></ion-text>
+      </ion-text>
+       
+      <ion-button class="logutBtn" size="small" fill="clear" (click)="logout()" >
+        Logout
+      </ion-button>
+      
+
+      <ion-button *ngIf=" this.isAdmin() "
+       color="danger" size="small" fill="clear" (click)="goToAdminPage()" >
+        Admin page
+      </ion-button>
+ 
+    </ion-item>
+
+  </ion-toolbar>
+  
+  <ion-toolbar>
+    <ion-searchbar
+      debounce="100"
+      animated="true"
+      placeholder="Seach for movies..."
+      (ionInput)="onSearchChange($event)"
+    >
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Movie Gallery</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid fixed="true">
+    <ion-row class="movies-row">
+      @for(movie of filteredMovieData; track i; let i = $index) {
+      <ion-col sizeLg="2" sizeMd="3" sizeSm="4">
+        <ion-card class="movie-card">
+          <div class="gallery">
+            <ion-img
+              class="item_sorc"
+              [src]="movie?.thumbnail"
+              alt="movie?.title"
+            >
+            </ion-img>
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{ movie?.title }}</ion-card-title>
+            <ion-card-subtitle>{{ movie?.year }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content> {{ movie?.genres }} </ion-card-content>
+          <ion-button
+            size="small"
+            fill="clear"
+            [routerLink]="['/','home','movies', movie?.movieID]"
+          >
+            More info</ion-button
+          >
+        </ion-card>
+      </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more movies..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
+<ion-footer [translucent]="true" >
+  <ion-toolbar>
+   <div>
+    <p>&copy; <span id="year_range"></span> [Your Company Name/Your Name]. All rights reserved. No part of this site's content may be reproduced or distributed without prior written permission from the owner.</p>
+    <p>We respect your privacy. By using this site, you consent to our use of cookies and data collection practices as described in our detailed <a href="">Privacy Policy</a>.</p>
+    <p><a href="">Terms & Conditions</a></p>
+</div>
+
+  </ion-toolbar>
+</ion-footer>
+
+

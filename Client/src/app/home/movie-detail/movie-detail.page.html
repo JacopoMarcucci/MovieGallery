@@ -1,0 +1,20 @@
+
+  <ion-header slot="fixed" class="ion-mo-border" >
+    <ion-toolbar>
+      <ion-buttons slot="start" mode="md">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-item>
+<ion-label>
+  <h2>{{ movieData?.title }}</h2>
+  <p><strong>Year:</strong> {{ movieData?.year }}</p>
+  <p><strong>Genres:</strong> {{ movieData?.genres }}</p>
+  <p><strong>Description:</strong> {{ movieData?.extract }}</p>
+  <p><strong>Cast:</strong> {{ movieData?.cast }}</p>
+</ion-label>
+</ion-item>
+</ion-content>

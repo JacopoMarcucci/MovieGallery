@@ -1,0 +1,30 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list lines="full">
+      
+        <ion-item>
+          <ion-select
+            label="Select genres"
+            placeholder="Select a genre"
+            interface="alert"
+            [multiple]="true"
+            (ionChange)="onGenreChange($event)"
+          >
+            @for(genre of genres; track i; let i = $index) {
+            <ion-select-option value="{{ genre }} ">
+              {{ genre }}
+            </ion-select-option
+            >
+            }
+          </ion-select>
+        </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>

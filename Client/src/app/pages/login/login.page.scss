@@ -1,0 +1,42 @@
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    .title-login-text{
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+ion-button{
+    box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    --ripple-color: rgb(20, 110, 255);
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+     margin-top: 30px;
+     font-weight: 1000;
+}
+
+.toggle-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: small;
+    ion-text{
+        padding-left: 5px;
+    cursor: pointer;
+    }
+}

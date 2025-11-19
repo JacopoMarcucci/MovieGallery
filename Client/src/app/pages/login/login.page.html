@@ -1,0 +1,129 @@
+<ion-content>
+  <div class="title-container">
+    <ion-text class="title-login-text" color="primary"> Auth:  </ion-text>
+    <ion-text class="title-login-text" color="primary"> {{submissionType.toUpperCase()}} </ion-text>
+  </div>
+
+
+
+  
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <ion-list>
+
+<!-- -------------------  Log  in -------------------- -->
+
+      <ng-container *ngIf="submissionType === 'login' ">
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input
+            #usernameInput="ngModel"
+            type="text"
+            inputmode="text"
+            name="Username"
+            ngModel
+            required
+            minlength="3"
+          >
+          </ion-input>
+        </ion-item>
+   
+          <small
+            color="danger"
+            *ngIf=" !usernameInput.valid && usernameInput.touched "
+            >Please enter your username</small
+          >
+       
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input
+            #passwordInput="ngModel"
+            type="password"
+            name="Password"
+            ngModel
+            required
+            minlength="3"
+          >
+          </ion-input>
+        </ion-item>
+        <small
+            color="danger"
+            *ngIf=" !usernameInput.valid && usernameInput.touched "
+            >Please enter your username</small
+          >
+
+        <ion-button
+          fill="outline"
+          type="submit"
+          expand="block"
+          [disabled]="loginForm.invalid"  >
+          Log in
+        </ion-button>
+      </ng-container>
+
+   
+
+      <!-- -------------------  Register  -------------------- -->
+
+
+   <ng-container *ngIf="submissionType === 'register' ">
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input
+            #usernameInput="ngModel"
+            type="text"
+            inputmode="text"
+            name="username"
+            ngModel
+            required
+            minlength="3"
+          >
+          </ion-input>
+        </ion-item>
+          <small
+            color="danger"
+            *ngIf=" !usernameInput.valid && usernameInput.touched "
+            >Please enter your username</small
+          >
+       
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input
+            #passwordInput="ngModel"
+            type="password"
+            name="password"
+            ngModel
+            required
+            minlength="3"
+          >
+          </ion-input>
+        </ion-item>
+        <small
+            color="danger"
+            *ngIf=" !usernameInput.valid && usernameInput.touched "
+            >Please enter your username</small
+          >
+
+
+        <ion-button
+          fill="outline"
+          type="submit"
+          expand="block"
+          [disabled]="loginForm.invalid"  >
+          {{submissionType}}
+        </ion-button>
+      </ng-container>
+
+
+    </ion-list>
+  </form>
+
+  <div class="toggle-text">
+    {{ submissionType === "login" ? 'New to MovieGallery? ' : 'Already on MovieGallery '}}
+    <ion-text color = 'primary' (click)="toggleText()">    
+      {{submissionType === "login" ? " Register now " : " Log in now "}}
+    </ion-text>
+  </div>
+
+
+</ion-content>
