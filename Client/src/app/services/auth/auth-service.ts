@@ -106,7 +106,6 @@ export class AuthService {
     if (!token) {
       return false;
     }
-
     // Use a regular expression '/\./' to split by a literal dot,
     // because a simple '.' in split treats it as a special regex character matching any character.
     const parts = token.split(/\./);
@@ -137,8 +136,8 @@ export class AuthService {
     });
   }
 
-  /////////////////  Admin methods  ///////////////////////
 
+  /////////////////  Admin methods  ///////////////////////
 
   getAllUsers(): Observable<any[]> {
     return this.httpClient
